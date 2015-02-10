@@ -56,7 +56,7 @@ end
 def create_file(directory, filename, content, title, editor)
   FileUtils.mkdir(directory) unless File.exists?(directory)
   if File.exists?("#{directory}/#{filename}")
-    raise "The file already exists."
+    raise "Sorry, that file already exists."
   else
     write_file(content, title, directory, filename)
     if editor && !editor.nil?
@@ -134,9 +134,15 @@ task :page, :title, :path do |t, args|
 end
 
 # rake build
-desc "Build the site"
-task :build do
-  execute("jekyll build")
+# rake build["drafts"]
+desc "Build the site (with drafts)"
+task :build, :option do |t, args|
+  option = args[:option]
+  if option.nil? or option.empty?
+    execute("jekyll build")
+  else
+    execute("jekyll build --drafts")
+  end
 end
 
 # rake watch
