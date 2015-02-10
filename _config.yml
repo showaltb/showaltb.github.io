@@ -17,6 +17,11 @@ baseurl:             /
 paginate:            5
 exclude: [templates]
 
+# Sass settings
+sass:
+  sass_dir: public/css/_scss
+  style: :compressed
+
 # Rakefile settings
 post:
   template: templates/_post.txt
