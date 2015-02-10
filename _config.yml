@@ -15,6 +15,16 @@ description:         'A reserved <a href="http://jekyllrb.com" target="_blank">J
 url:                 http://lanyon.getpoole.com
 baseurl:             /
 paginate:            5
+exclude: [templates]
+
+# Rakefile settings
+post:
+  template: templates/_post.txt
+  extension: md
+page:
+  template: templates/_page.txt
+  extension: md
+editor: vim
 
 # About/contact
 author:
