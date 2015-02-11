@@ -1,7 +1,7 @@
 # General site info
 title:       'Robert Showalter' 
-tagline:     'I borrow your watch to tell you what time it is...'
-description: 'My blog'
+tagline:     'Site Tagline, found in /_data/site-info.yml.'
+description: 'Site Description, found in /_data/site-info.yml.'
 url:         http://robertshowalter.com
 repo:        http://github.com/showaltb/showaltb.github.io
 version:     1.0.0
