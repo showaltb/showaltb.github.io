@@ -25,12 +25,15 @@
       {% endif %}
     {% endfor %}
 
-    <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.data.site-info.version }}.zip">Download</a>
-    <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
     <span class="sidebar-nav-item">Currently v{{ site.data.site-info.version }}</span>
   </nav>
 
   <div class="sidebar-item">
+    <p>
+      Crafted by <a href="http://twitter.com/bobbyshowalter" title="Bobby Showalter">Bobby Showalter</a>
+    </p>
+    <p>
+      This site and source are hosted on <a href="{{ site.data.site-info.repo }}" title="Github">Github</a>.
     <p>
       &copy; {{ site.time | date: '%Y' }}. All rights reserved.
     </p>
