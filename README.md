@@ -2,7 +2,7 @@
 
 Built with [Jekyll](http://jekyllrb.com), themed with [Lanyon](http://lanyon.getpoole.com), and assembled/reorganized by [Bobby Showalter](http://twitter.com/bobbyshowalter).
 
-## The Rakefile
+## Rakefile
 
 - `rake post["Title"]` creates a new post with the template file (`templates/_post.txt`). The filename is generated with the Jekyll-formatted date and the supplied `["Title"]`. This new post is then automatically opened in the default editor (currently set to `vim`). Note that though the template uses the `.txt` extension, the filetype is changed to `.md` when in use.
 
@@ -16,7 +16,7 @@ Built with [Jekyll](http://jekyllrb.com), themed with [Lanyon](http://lanyon.get
 
 - `rake watch`, `rake watch[number]`, `rake watch["drafts"]` build the site (with optional limited `[number]` of posts or with `["drafts"]`), start a server, and automatically rebuild the site when changes are saved.
 
-## The Configs
+## Configs
 
 **`_config.yml`**
 
