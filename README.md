@@ -4,11 +4,11 @@ Built with [Jekyll](http://jekyllrb.com), themed with [Lanyon](http://lanyon.get
 
 ## Rakefile
 
-- `rake post["Title"]` creates a new post with the template file (`templates/_post.txt`). The filename is generated with the Jekyll-formatted date and the supplied `["Title"]`. This new post is then automatically opened in the default editor (currently set to `vim`). Note that though the template uses the `.txt` extension, the filetype is changed to `.md` when in use.
+- `rake post["Title"]` creates a new post with the template file (`templates/_post.txt`). The filename is generated with the Jekyll-formatted date and the supplied `["Title"]`. This new post is then opened in the default editor (currently set to `vim`). Posts are automatically added to the Archive page.
 
 - `rake draft["Title"]` is the same as `rake post["Title"]`, but only generates a draft that does not get published.
 
-- `rake publish` displays a numbered list of unpublished drafts. After choosing a draft, the Jekyll-formatted date is automatically added to the filename, and the draft is moved from `_drafts` to `_posts` for publishing. This new post is also listed on the `archive.md` page.
+- `rake publish` displays a numbered list of unpublished drafts. After choosing a draft, the Jekyll-formatted date is automatically added to the filename, and the draft is moved from `_drafts` to `_posts` for publishing.
 
 - `rake page["Title"]`, `rake page["Title","path/to/folder"]` creates a new page with the template file (`templates/_page.txt`). New pages are written with Markdown and automatically included in the sidebar (as long as they use `layout: page`).
 
