@@ -1,5 +1,5 @@
 ---
-title: "How to Show git Status in Your bash Prompt"
+title: "How to Show Git Status in Your Bash Prompt"
 layout: post
 ---
 
