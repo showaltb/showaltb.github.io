@@ -1,6 +1,7 @@
 ---
 title: "How to Show Git Status in Your Bash Prompt"
 layout: post
+category: General
 ---
 
 Here is how to have your bash prompt tell you if you have changed or untracked
