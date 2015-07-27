@@ -8,9 +8,9 @@ category: Perl
 
 I've been working on a large intranet application for several years. The user
 facing portion of the application is a set of CGI scripts using `CGI.pm`. I have
-everything running under Apache mod_perl 2.0. The pages are handled with
+everything running under Apache mod\_perl 2.0. The pages are handled with
 [ModPerl::Registry::Prefork](http://search.cpan.org/dist/mod_perl/docs/api/ModPerl/RegistryPrefork.pod),
-which allows normal CGI scripts to run under mod_perl.
+which allows normal CGI scripts to run under mod\_perl.
 
 (Note: since `ModPerl::Registry::Prefork` wraps your script in an outer `sub
 {}` that can be executed by the handler, you have to avoid file-scoped lexicals
@@ -24,7 +24,7 @@ This environment works fine, but it has a few drawbacks in practice:
 
 * The application is tied to Apache, which means I have to configure a full
   Apache stack for development.
-* It's difficult to use mod_perl with tools like
+* It's difficult to use mod\_perl with tools like
   [plenv](https://github.com/tokuhirom/plenv) and
   [Carton](https://github.com/perl-carton/carton), which allow an
   application-specific Perl installation. So I end up polluting the system
@@ -40,7 +40,7 @@ way of defining applications and servers so they can work together in multiple
 configurations.
 
 What it meant for me was that if I could change my application from working
-with mod_perl-specific specification (`ModPerl::Registry::Prefork`) to working
+with mod\_perl-specific specification (`ModPerl::Registry::Prefork`) to working
 with the PSGI specification, I would no longer have to run the application
 under Apache, and I would be able to address all of the drabacks mentioned
 above.
