@@ -96,8 +96,8 @@ separately available modules):
 ## Getting to a Solution
 
 When I first started looking at all of this, nothing seemed to be the right
-answer. I didn't want a Framwork, because I would have to rewrite all my
-scripts to adapt to the Framework's calling conventions. The
+answer. I didn't want a framework, because I would have to rewrite all my
+scripts to adapt to the framework's calling conventions. The
 `Plack::APP::CGIBin` application seemed promising. From the description:
 
 > Plack::App::CGIBin allows you to load CGI scripts from a directory and
