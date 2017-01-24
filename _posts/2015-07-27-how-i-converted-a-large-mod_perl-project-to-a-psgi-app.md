@@ -16,7 +16,7 @@ which allows normal CGI scripts to run under mod\_perl.
 {}` that can be executed by the handler, you have to avoid file-scoped lexicals
 for sharing variables within your script. The easy fix is to change file-scoped
 `my` variables to `our` variables. All of my scripts had this in place already,
-which made the transaction to PSGI easier.)
+which made the migration to PSGI easier.)
 
 ## Drawbacks
 
@@ -145,21 +145,21 @@ A line-by-line analysis of the application follows.
 
 ```perl
      1	#!/usr/bin/env perl
-     2	
+     2
      3	package MyApp;
-     4	
+     4
      5	use common::sense;
-     6	
+     6
      7	use File::Basename;
      8	use File::Spec;
      9	use Plack::App::WrapCGI;
     10	use SUPER;
-    11	
+    11
     12	use parent 'Plack::App::File';
-    13	
+    13
     14	# only files ending with these suffixes will be served statically
     15	my @STATIC_SUFFIXES = qw(.css .gif .ico .js .png);
-    16	
+    16
     17	sub should_serve_static
     18	{
     19	  my ($self, $suffix) = @_;
@@ -170,14 +170,14 @@ A line-by-line analysis of the application follows.
     24	  };
     25	  exists($self->{static_suffixes}{$suffix});
     26	}
-    27	
+    27
     28	sub serve_path
     29	{
     30	  my ($self, $env, $file) = @_;
-    31	
+    31
     32	  # get path and suffix
     33	  my ($name, $path, $suffix) = fileparse($file, qr/\.[^.]*/);
-    34	
+    34
     35	  # serve as a perl script (adapted from Plack::App::CGIBin serve_path method)
     36	  if ($suffix eq '.pl') {
     37	    local @{$env}{qw(SCRIPT_NAME PATH_INFO)} = @{$env}{qw( plack.file.SCRIPT_NAME plack.file.PATH_INFO )};
@@ -187,21 +187,21 @@ A line-by-line analysis of the application follows.
     41	    my $app = $self->{_compiled}{$file} ||= Plack::App::WrapCGI->new(script => $file)->to_app;
     42	    return $app->($env);
     43	  }
-    44	
+    44
     45	  # serve as static file
     46	  return super if $self->should_serve_static($suffix);
-    47	
+    47
     48	  # otherwise not found
     49	  $self->return_404;
     50	}
-    51	
+    51
     52	package main;
-    53	
+    53
     54	use common::sense;
-    55	
+    55
     56	use FindBin;
     57	use Plack::Builder;
-    58	
+    58
     59	builder {
     60	  enable 'DirIndex', dir_index => 'index.pl';
     61	  MyApp->new(
@@ -210,8 +210,10 @@ A line-by-line analysis of the application follows.
     64	};
 ```
 
-* Line 1: Perl scripts should be loaded with `#!/usr/bin/env perl` instead of
-  `#!/usr/bin/perl`, so tools like `rbenv` can use a local Perl environment.
+* Line 1: Perl scripts should be loaded with `#!/usr/bin/env perl`
+  instead of `#!/usr/bin/perl`, so tools like
+  [plenv](https://github.com/tokuhirom/plenv) can use a local Perl
+  environment.
 * Line 3-13: I'm creating my custom application class, based on
   `Plack::App::File`.
 * Lines 14-26. Since I have some files I want to serve statically (e.g.
