@@ -8,6 +8,8 @@
 # Dependencies
 markdown:    kramdown
 highlighter: rouge
+plugins:
+  - jekyll-paginate
 
 # Local server settings
 host: 0.0.0.0
